@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+// font-family: 'Merriweather', serif;
+// font-family: 'Open Sans', sans-serif;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+// COLORS
+
+$primary--light: #FDC91D;
+$primary--dark: #002651;
+$secondary--light: #FFFFFF;
+$secondary--dark: #101010;
+$accent--light: rgba(238, 239, 241, 0.25);
+$accent--dark: #EEEFF1;
+
+// MEDIA SIZES
+
+$xl: 1200px;
+$lg: 995px;
+$md: 768px;
+$sm: 576px;
+
+
+// GLOBAL STYLINGS
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline-color: $primary--dark !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.4em 1.5em;
+
+  outline: none !important;
+  
+  background: $primary--light;
+  color: $secondary--dark;
+  
+  border-radius: 5px;
+  transition:  all 250ms ease;
+
+  &:hover,
+  &:focus {
+    outline: none !important;
+    color: $secondary--light;
+  }
+
+  &.login {
+    padding: 0em 1em;
+    margin: 22px 0px;
+
+    @media (max-width: $md) {
+      margin: 22px 15px 22px 0px;
+    }
+  }
+
+  &.outline {
+    background: $primary--dark;
+    color: $secondary--light;
+
+    &:hover,
+    &:focus {
+      outline: none !important;
+      color: #d5d6da;
+    }
+  }
+
+}
+
+h2 {
+  font-size: 48px;
+  padding-top: 30px;
+  font-weight: 700;
+  margin: 0 0 50px 0;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+
+  @media (max-width: $lg) {
+    font-size: 36px;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  color: $secondary--dark;
+  font-family: 'Merriweather', serif;
+
+  &.feature-heading {
+    color: $primary--dark;
+  }
+
+  &.testimonial-text {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
+    @media (max-width: $sm) {
+      font-size: 20px;
+    }
+  }
+  &.modal-title {
+    margin-bottom: 15px;
+    border-bottom: 2px solid $primary--light;
+  }
+}
+
+h6 {
+  font-size: 20px;
+  font-weight: 600;
+
+  &.course-title {
+    margin-top: 5px;
+  }
+  &.testimonial-by {
+    margin-bottom: -4px;
+  }
+  &.copy {
+    font-size: 16px;
+
+    @media (max-width: 341px) {
+      font-size: 14px;
+    }
+  }
+}
+
+h4 {
+  &.price {
+    color: $secondary--dark;  
+  }
+}
+
+p {
+  color: $secondary--dark;
+
+  &.created-by {
+    color: #b3b3b3;
+  }
+  &.rating {
+    margin-bottom: -1px;
+    color: $primary--light;
+    font-size: 18px;
+  }
+  &.about-testi {
+    color: $primary--light;
+  }
+}
+
+.padding {
+  padding-bottom: 50px;
+}
+
+i {
+  font-size: 14px;
+}
+
+/////////////////////////////////////////////////////////
+
+
+header {
+
+  // NAVBAR
+  nav {
+    // z-index: 5;
+    display: flex;
+    padding: 0 50px;
+    background-color: $secondary--light;
+
+    @media (max-width: $md) {
+      padding: 0;
+    }
+
+    .logo-link {
+      flex: 1;
+      display: block;
+      padding: 10px 20px 10px 0px;
+
+      @media (max-width: $md) {
+        padding-left: 15px;
+      }
+      
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .checkbox {
+      display: none;
+
+      &:checked ~ ul.menu {
+        height: 260px;
+      }
+
+      &:checked ~ ul.menu li a {
+        display: block;
+      }
+
+      &:checked ~ .nav-icon .icon {
+        background: transparent;
+
+        &:before{
+          transform: rotate(-45deg);
+          top: 0;
+        }
+
+        &:after {
+          transform: rotate(45deg);
+          top: 0;
+        }
+      }  
+    }
+
+    .nav-icon {
+      display: none;
+
+      @media (max-width: $md) {
+        display: block;
+        cursor: pointer;
+        margin-bottom: 0;
+        padding: 28px 20px;
+        position: relative;
+        align-self: center;
+      }
+
+      .icon {
+        height: 2px;
+        width: 20px;
+        display: block;
+        position: relative;
+        background: $secondary--dark;
+        transition: background 250ms ease;
+
+        &:before,
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: absolute;
+          background: $secondary--dark;
+          transition: all 250ms ease;
+        }
+
+        &:before {
+            top: 5px;
+            width: 20px;
+          }
+          
+        &:after {
+          top: -5px;
+          width: 20px;
+        }
+      }
+    }
+
+    ul.menu {
+      display: flex;
+      margin-bottom: 0;
+      align-self: center;
+
+      @media (max-width: $md) {
+        z-index: 5;
+        width: 100%;
+        display: block;
+        text-align: center;
+        background: $accent--dark;
+
+        top: 88.2px;
+        left: 0; right: 0;
+        position: absolute;
+        transition: height 250ms ease;
+
+        height: 0;
+      }
+      
+      li {
+        list-style: none;
+        
+        a {
+          display: block;
+          padding: 20px 20px;
+          text-decoration: none;
+          color: $primary--dark;
+          transition: all 250ms ease;
+
+          &:hover,
+          &:focus {
+            outline: none;
+            color: $primary--light;
+          }
+
+          @media (max-width: $md) {
+            padding: 20px; 
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // HERO
+  .hero {
+    height: 550px;
+    background: linear-gradient(rgba(16, 16, 16, 0.3), rgba(16, 16, 16, 0.3)), url(img/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (max-width: $sm) {
+      height: 450px;
+    }
+
+    h1 {
+      font-size: 64px;
+      font-weight: 700;
+      color: $secondary--light;
+      font-family: 'Merriweather', serif;
+      text-shadow: 0px 4px 4px rgba(16, 16, 16, 0.1);
+
+      padding-top: 140px;
+
+      @media (max-width: $lg) {
+        font-size: 48px;
+      }
+      @media (max-width: 400px) {
+        font-size: 36px;
+      }
+    }
+
+    .btn-wrapper {
+      margin-top: 20px;
+      a {
+        margin-right: 10px;
+
+        @media (max-width: 400px) {
+          padding: 0.3em 1em;
+        }
+        @media (max-width: 310px) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+// MAIN
+
+
+// What we do (Section-1)
+
+.why-learn-it {
+
+  .feature{
+    text-align: center;
+    img {
+      margin: 20px;
+
+      @media (max-width: $sm) {
+        width: 55px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+
+// Courses (Section-2)
+
+.courses {
+  position: relative;
+  background-color: $accent--light;
+
+  .course {
+    padding: 10px;
+    margin: 0 15px 30px 15px;
+    border-radius: 5px;
+    background: $accent--dark;
+    transition:  all 250ms ease;
+
+    .thumbnail-wrapper {
+      height: 160px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      &.course-1 {
+        background: url(img/course-1.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.course-2 {
+        background: url(img/course-2.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.course-3 {
+        background: url(img/course-3.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.course-4 {
+        background: url(img/course-4.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.course-5 {
+        background: url(img/course-5.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.course-6 {
+        background: url(img/course-6.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+      transform: translateY(-5px);
+      box-shadow: (0px 0px 20px 0px rgba(16, 16, 16, 0.25));
+    }
+  }
+
+
+  // Pop Up Description
+  .modal {
+    z-index: 10;
+    width: 400px;
+    height: 330px;
+    display: block;
+  
+    border-radius: 5px;
+    background: $accent--dark;
+    
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    padding: 30px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 435px) {
+      width: 250px;
+      height: 460px;
+    }
+
+    .close-modal {
+      top: 0px;
+      right: 15px;
+      position: absolute;
+
+      outline: none;
+      
+      border: none;
+      cursor: pointer;
+      font-size: 40px;
+      background: none;
+      color: $secondary--dark;
+    }
+  }
+
+  .overlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(16, 16, 16, 0.4), rgba(16, 16, 16, 0.4));
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  }
+
+  .show-modal {
+    display: block;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+}
+
+
+// Testimonials (Section-3)
+
+.testimonials {
+
+  .testimonial-by-wrapper {
+    text-align: center;
+
+    .testi-desc {
+      margin-top: 20px;
+
+      .testi-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: url(img/testimonial-by.jpg);
+        background-size: cover;
+        background-position: center;
+        
+        display: inline-block;
+      }
+    }
+  }
+}
+
+
+// FOOTER
+
+footer {
+  height: 300px;
+  position: relative;
+  background: $accent--light;
+
+  .logo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    
+    img {
+      width: 80px;
+      height: 90px;
+    }
+  }
+
+  .copyright-bar {
+    width: 100%;
+    background: $primary--dark;
+
+    bottom: 0;
+    position: absolute;
+
+    .copyright {
+      display: flex;
+      justify-content: center;
+      color: $secondary--light;
+      padding: 8px;
+
+      @media (max-width: 624px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      h6 {
+        margin: 0 15px;
+        text-align: center;
+
+        @media (max-width: 616px) {
+          margin: 5px 15px;
+        }
+
+        a {
+          cursor: pointer;
+          text-decoration: underline;
+          color: $secondary--light;
+          transition:  all 250ms ease;
+
+          &:hover,
+          &:focus {
+            outline: none;
+            color: #d5d6da;
+          }
+        }
+      }
+    }
+  }
+}
+
