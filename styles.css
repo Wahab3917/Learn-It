@@ -109,6 +109,12 @@ h3.modal-title {
   border-bottom: 2px solid #FDC91D;
 }
 
+@media (max-width: 435px) {
+  h3.modal-title {
+    font-size: 22px;
+  }
+}
+
 h6 {
   font-size: 20px;
   font-weight: 600;
@@ -163,11 +169,18 @@ i {
 }
 
 header nav {
+  z-index: 20;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0 50px;
   background-color: #FFFFFF;
+  top: 0;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(16, 16, 16, 0.1);
+          box-shadow: 1px 1px 4px 0px rgba(16, 16, 16, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -459,7 +472,7 @@ header .hero .btn-wrapper a {
 .courses .modal {
   z-index: 10;
   width: 400px;
-  height: 330px;
+  height: 245px;
   display: block;
   border-radius: 5px;
   background: #EEEFF1;
@@ -468,15 +481,16 @@ header .hero .btn-wrapper a {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  padding: 30px;
+  padding: 5px;
   -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
           box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 435px) {
   .courses .modal {
+    padding-top: 25px;
     width: 250px;
-    height: 460px;
+    height: 360px;
   }
 }
 
@@ -487,7 +501,7 @@ header .hero .btn-wrapper a {
   outline: none;
   border: none;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 28px;
   background: none;
   color: #101010;
 }
