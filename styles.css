@@ -336,6 +336,7 @@ header nav ul.menu li a:hover, header nav ul.menu li a:focus {
 
 header .hero {
   height: 550px;
+  padding-top: 85px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 16, 16, 0.3)), to(rgba(16, 16, 16, 0.3))), url(img/bg.jpg);
   background: linear-gradient(rgba(16, 16, 16, 0.3), rgba(16, 16, 16, 0.3)), url(img/bg.jpg);
   background-size: cover;
