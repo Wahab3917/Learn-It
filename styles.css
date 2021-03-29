@@ -299,10 +299,10 @@ header nav ul.menu {
     display: block;
     text-align: center;
     background: #EEEFF1;
-    top: 88.2px;
+    top: 85px;
     left: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     -webkit-transition: height 250ms ease;
     transition: height 250ms ease;
     height: 0;

@@ -301,9 +301,9 @@ header {
         text-align: center;
         background: $accent--dark;
 
-        top: 88.2px;
+        top: 85px;
         left: 0; right: 0;
-        position: absolute;
+        position: fixed;
         transition: height 250ms ease;
 
         height: 0;
