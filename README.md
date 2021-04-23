@@ -1,6 +1,6 @@
 # LearnIt
 
-### Landing Page of a Courses Website, designed with Figma and developed with Html, Scss, and JavaScript.
+Landing Page of a Courses Website, designed with Figma and developed with Html, Scss, and JavaScript. <br>
 https://learnit-landingpage.netlify.app/  <br><br><br>
 
 
